@@ -11,10 +11,12 @@ class MRPreProcess(MRJob):
         ]
     
     def mapper_remove_errors(self, _, line):
-        temp = line.replace('"', "")
-        if(len(temp.split(",")) == 6):
-            if(temp.split(",")[5] != " " and temp.split(",")[5] != "No loot, raid was Expired"):
-                yield temp.split(",")[2] + temp.split(",")[3], temp.split(",")[4] + temp.split(",")[5]
+        temp = line.replace('"', "").split(",")
+        for lines in temp:
+            lines.strip()
+        if(len(temp) == 6):
+            if(temp[5] != " " and temp[5] != "No loot, raid was Expired"):
+                yield (temp[2] + temp[3]).strip(), temp[4].replace(" ", "") + temp[5]
 
     def reducer_combine_into_one(self, key, values):
         yield key, list(values)
