@@ -8,3 +8,5 @@ To generate the pre-processed file.
 
 Then I used the following to filter only the SP reward of the raid.
 ```python executables/analyseSP.py < examples/raidLootData-Example-pre-processed.txt > examples/raidLootData-Example-SP.txt```
+
+```python ./executables/graphSP.py ./examples/raidLootData-Example-SP.txt```
