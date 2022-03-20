@@ -23,8 +23,8 @@ for raids in lines:
 
     print("===========================")
     for key in analysed:
-        if(key > 8 and key < 18):
-            print(raids[0] + " Damage Between" + str((key-1) * 12500) + "-" + str(key * 12500) + "  Average: " + str(sum(analysed[key]) / len(analysed[key])))
+        if(len(analysed[key]) > 20):
+            print(raids[0] + " Damage Between " + str((key-1) * 12500) + "-" + str(key * 12500) + "  Average: " + str(sum(analysed[key]) / len(analysed[key])))
         
     
 #     x = [0]
