@@ -16,10 +16,10 @@ class MRPreProcess(MRJob):
             lines.strip()
         if(len(temp) == 6):
             if(temp[5] != " " and temp[5] != "No loot, raid was Expired"):
-                yield (temp[2] + temp[3]).strip(), temp[4].replace(" ", "") + temp[5]
+                yield (temp[2].strip() + " " + temp[3]).strip(), temp[4].replace(" ", "") + " /" + temp[5]
 
     def reducer_combine_into_one(self, key, values):
-        yield key, list(values)
+        yield key, "|".join(values)
 
 if __name__ == '__main__':
     MRPreProcess.run()

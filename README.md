@@ -6,4 +6,5 @@ Commands used
 ```python executables/preprocess.py < examples/raidLootData-Example.csv > examples/raidLootData-Example-pre-processed.txt```
 To generate the pre-processed file.
 
-``` ```
+Then I used the following to remove any data that has no sp.
+```python executables/analyseSP.py < examples/raidLootData-Example-pre-processed.txt > examples/raidLootData-Example-SP.txt```
